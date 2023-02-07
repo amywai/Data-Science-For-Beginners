@@ -1,0 +1,45 @@
+# Pandas
+
+# Import library
+import pandas as pd 
+import numpy as np 
+import matplotlib.pyplot as plt 
+
+# Series
+a = pd.Series(range(1,10)) # in Python, range (x,y) = x to y-1
+# output:
+0    1
+1    2
+2    3
+3    4
+4    5
+5    6
+6    7
+7    8
+8    9
+
+# pd.date_range
+start_date = "Jan 1, 2020"
+end_date = "Dec 31, 2020"
+idx = pd.date_range(start_date,end_date)
+print(idx)
+# output:
+DatetimeIndex(['2020-01-01', '2020-01-02', '2020-01-03', '2020-01-04',
+               '2020-01-05', '2020-01-06', '2020-01-07', '2020-01-08',
+               '2020-01-09', '2020-01-10',
+               ...
+               '2020-12-22', '2020-12-23', '2020-12-24', '2020-12-25',
+               '2020-12-26', '2020-12-27', '2020-12-28', '2020-12-29',
+               '2020-12-30', '2020-12-31'],
+              dtype='datetime64[ns]', length=366, freq='D')
+# print(f) f HAS to be included so to allow (idx) substitution
+#(len(idx)) = return number of items in ()
+print(f"Length of index is {len(idx)}") 
+# output:
+Length of index is 366
+# random.randint(3,9) = return a number between 3-9 (both included)
+# random,randint(size) =number of number to be generated
+items_sold = pd.Series(np.random.randint(25,50,size=len(idx)),index=idx)
+# the width and height of the graph is 10 inches by 3 inches
+items_sold.plot(figsize=(10,3))
+plt.show()

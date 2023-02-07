@@ -23,3 +23,5 @@ SELECT airports.name,
 FROM airports
     INNER JOIN cities ON airports.city_id = cities.id
 WHERE cities.country = "United Kingdom"
+
+--In SQL, casing doesn't matter but for demand, use ALL CAP
