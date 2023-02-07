@@ -85,3 +85,6 @@ print(f"Columns B and A (DataFrame):\n{df[['B','A']]}")
 # Select row
 df[df['A']<5] # rows with which has A that is smaller than 5 will appear
 df[(df['A']>5) & (df['A']<7)] # rows with which has A=6 will appear
+
+# Show column A and C only
+df[['A','C']]
