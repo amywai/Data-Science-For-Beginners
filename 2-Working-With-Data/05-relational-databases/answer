@@ -1,0 +1,25 @@
+--Create queries to return the following information:
+
+--1. All city names in the Cities table
+SELECT city
+FROM cities
+
+--2. All cities in Ireland in the Cities table
+SELECT city
+FROM cities
+WHERE country = "Ireland"
+
+--3. All airport names with their city and country
+SELECT airports.name,
+    cities.city,
+    cities.country
+FROM airports
+    INNER JOIN cities ON airports.city_id = cities.id
+    
+--4. All airports in London, United Kingdom
+SELECT airports.name,
+    cities.city,
+    cities.country
+FROM airports
+    INNER JOIN cities ON airports.city_id = cities.id
+WHERE cities.country = "United Kingdom"
