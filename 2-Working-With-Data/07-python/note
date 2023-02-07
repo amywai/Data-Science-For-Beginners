@@ -88,3 +88,7 @@ df[(df['A']>5) & (df['A']<7)] # rows with which has A=6 will appear
 
 # Show column A and C only
 df[['A','C']]
+
+# Show column C only that fits 'A' <5
+new_df=df[df['A'] <5]
+print(new_df['C'])
