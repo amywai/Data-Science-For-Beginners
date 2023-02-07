@@ -63,3 +63,25 @@ monthly = total_items.resample("1M").mean()
 ax = monthly.plot(kind='bar',figsize=(10,3))
 ax.set_xticklabels([x.strftime("%b-%Y") for x in monthly.index], rotation=45)
 plt.show()
+
+# Data Frame
+df = pd.DataFrame([a,b])
+print(df)
+# output:
+    0   1   2   3   4       5       6       7      8
+0   1   2   3   4   5       6       7       8      9
+1   I  like to use Python  and   Pandas   very   much
+
+# Series as column = define them by 'X' : a, column key starts with A,B,C, row key starts with 0,1,2
+df = pd.DataFrame({ 'A' : a, 'B' : b })
+print(df)
+# or by Trasnposing
+pd.DataFrame([a,b]).T.rename(columns={ 0 : 'A', 1 : 'B' })
+
+# Select columns from df
+print(f"Column A (series):\n{df['A']}")
+print(f"Columns B and A (DataFrame):\n{df[['B','A']]}")
+
+# Select row
+df[df['A']<5] # rows with which has A that is smaller than 5 will appear
+df[(df['A']>5) & (df['A']<7)] # rows with which has A=6 will appear
